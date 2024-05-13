@@ -1,11 +1,10 @@
-import Image from "next/image";
 import Navbar from "./_components/navbar/Navbar";
-import Modal from "./_components/modals/Modal";
+import RegisterModal from "./_components/modals/RegisterModal";
 
 export default function Home() {
   return (
     <>
-      <Modal isOpen/>
+      <RegisterModal />
       <Navbar />
     </>
   );
