@@ -3,6 +3,7 @@
 import { User } from "@prisma/client"
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai"
 import { SafeUser } from "../types"
+import useFavorite from "@/hooks/useFavorite"
 
 interface HeartButtonProps {
   listingId: string
@@ -10,12 +11,11 @@ interface HeartButtonProps {
 }
 
 const HeartButton = ({ listingId, currentUser }: HeartButtonProps) => {
-  const hasFavourited = false
-  const toggleFavourite = () => {}
+  const { hasFavorited, toggleFavorite } = useFavorite({listingId, currentUser})
 
   return (
     <div
-      onClick={toggleFavourite}
+      onClick={toggleFavorite}
       className='relative hover:opacity-80 transition cursor-pointer'
     >
       <AiOutlineHeart
@@ -24,7 +24,7 @@ const HeartButton = ({ listingId, currentUser }: HeartButtonProps) => {
       />
       <AiFillHeart
         size={24}
-        className={hasFavourited ? "fill-rose-500" : "fill-neutral-500/70"}
+        className={hasFavorited ? "fill-rose-500" : "fill-neutral-500/70"}
       />
     </div>
   )
